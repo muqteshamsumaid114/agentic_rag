@@ -82,40 +82,53 @@ case instead of an edge case:
 ## Project layout
 
 ```
-agentic_rag/
-├── core/
-│   ├── retriever.py       # FAISS dense + BM25 sparse + RRF fusion + cross-encoder rerank
-│   ├── llm_client.py      # thin Anthropic API wrapper
-│   ├── state.py           # shared LangGraph state schema
-│   └── orchestrator.py    # LangGraph graph: wires agents + self-correction loop
-├── agents/
-│   ├── retriever_agent.py # query reformulation + hybrid search
-│   ├── generator_agent.py # grounded answer drafting
-│   ├── verifier_agent.py  # claim decomposition + entailment checking + scoring
-│   └── crewai_pipeline.py # same 3 roles, alternative CrewAI orchestration
-├── eval/
-│   └── ragas_eval.py      # RAGAS faithfulness/relevancy/precision/recall harness
-├── data/
-│   └── sample_docs.json   # toy knowledge base (JWST facts) for the demo
-├── main.py                # end-to-end demo: index docs, run pipeline, print trace
-├── run_eval.py             # run the RAGAS eval suite over a small test set
+├── agentic_rag/
+│   ├── core/
+│   │   ├── retriever.py       # FAISS dense + BM25 sparse + RRF fusion + cross-encoder rerank
+│   │   ├── llm_client.py      # thin Anthropic API wrapper
+│   │   ├── state.py           # shared LangGraph state schema
+│   │   └── orchestrator.py    # LangGraph graph: wires agents + self-correction loop
+│   ├── agents/
+│   │   ├── retriever_agent.py # query reformulation + hybrid search
+│   │   ├── generator_agent.py # grounded answer drafting
+│   │   ├── verifier_agent.py  # claim decomposition + entailment checking + scoring
+│   │   └── crewai_pipeline.py # same 3 roles, alternative CrewAI orchestration
+│   ├── eval/
+│   │   └── ragas_eval.py      # RAGAS faithfulness/relevancy/precision/recall harness
+│   └── data/
+│       └── sample_docs.json   # toy knowledge base (JWST facts) for the demo
+├── app.py                 # Streamlit web interface / dashboard
+├── main.py                # end-to-end CLI demo: index docs, run pipeline, print trace
+├── run_eval.py            # run the RAGAS eval suite over a small test set
 └── requirements.txt
 ```
 
 ## Running it
 
-```bash
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY=sk-...
+1. **Install requirements:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-python main.py        # runs the agentic loop on sample questions, prints full trace
-python run_eval.py    # runs RAGAS evaluation over a small test set
-```
+2. **Run the Streamlit Dashboard (Web App):**
+   ```bash
+   python app.py
+   ```
+
+3. **Run the CLI Demo:**
+   ```bash
+   python main.py
+   ```
+
+4. **Run the Evaluation Suite:**
+   ```bash
+   python run_eval.py
+   ```
 
 `main.py` includes one question the sample docs *can't* fully answer
 (JWST's exact angular resolution in arcseconds), specifically to demonstrate
 the verifier catching the gap and the loop reformulating the query rather
-not letting the generator guess.
+than letting the generator guess.
 
 ## LangGraph vs CrewAI
 
