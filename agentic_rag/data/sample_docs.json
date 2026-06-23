@@ -1,0 +1,42 @@
+[
+  {
+    "doc_id": "doc_001",
+    "text": "The James Webb Space Telescope (JWST) was launched on December 25, 2021, aboard an Ariane 5 rocket from the Guiana Space Centre in French Guiana. It is the largest optical telescope in space."
+  },
+  {
+    "doc_id": "doc_002",
+    "text": "JWST orbits the Sun near the second Lagrange point (L2), about 1.5 million kilometers from Earth, rather than orbiting Earth directly like the Hubble Space Telescope."
+  },
+  {
+    "doc_id": "doc_003",
+    "text": "JWST's primary mirror is 6.5 meters in diameter and is composed of 18 hexagonal gold-coated beryllium segments. This is significantly larger than Hubble's 2.4-meter mirror."
+  },
+  {
+    "doc_id": "doc_004",
+    "text": "The telescope primarily observes in the infrared spectrum, which allows it to see through cosmic dust and observe some of the earliest galaxies formed after the Big Bang."
+  },
+  {
+    "doc_id": "doc_005",
+    "text": "JWST's instruments must be kept extremely cold, around -233 Celsius, to function correctly, which is why the telescope has a large five-layer sunshield roughly the size of a tennis court."
+  },
+  {
+    "doc_id": "doc_006",
+    "text": "The Hubble Space Telescope was launched in 1990 aboard the Space Shuttle Discovery and orbits roughly 547 kilometers above Earth."
+  },
+  {
+    "doc_id": "doc_007",
+    "text": "Hubble primarily observes in visible and ultraviolet light, complementing JWST's infrared capabilities; the two telescopes are often used together for multi-wavelength studies."
+  },
+  {
+    "doc_id": "doc_008",
+    "text": "The total cost of the JWST program was approximately $10 billion, making it one of the most expensive science missions ever undertaken."
+  },
+  {
+    "doc_id": "doc_009",
+    "text": "NASA partnered with the European Space Agency (ESA) and the Canadian Space Agency (CSA) to build and operate JWST."
+  },
+  {
+    "doc_id": "doc_010",
+    "text": "Servicing missions to repair or upgrade JWST in person are not currently planned, unlike Hubble, which was serviced by astronauts five times because it orbits much closer to Earth."
+  }
+]
