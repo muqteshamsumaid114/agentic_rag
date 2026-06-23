@@ -1,14 +1,18 @@
 import sys
+from pathlib import Path
+
+# Add the agentic_rag directory to sys.path to enable local imports
+sys.path.insert(0, str(Path(__file__).parent / "agentic_rag"))
+
 import streamlit as st
 
 # Bootstrapping helper: if run directly via `python app.py`, start Streamlit CLI
 if not st.runtime.exists():
     from streamlit.web import cli as stcli
-    sys.argv = ["streamlit", "run", __file__]
+    sys.argv = ["streamlit", "run", __file__] + sys.argv[1:]
     sys.exit(stcli.main())
 
 import json
-from pathlib import Path
 
 from core.llm_client import LLMClient
 from core.orchestrator import run_pipeline
@@ -72,7 +76,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_PATH = Path(__file__).parent / "data" / "sample_docs.json"
+DATA_PATH = Path(__file__).parent / "agentic_rag" / "data" / "sample_docs.json"
 
 @st.cache_resource
 def get_retriever():
@@ -200,4 +204,3 @@ if st.button("Run Pipeline", type="primary"):
                     st.markdown(f"**[{idx+1}] Document ID: `{c.doc.doc_id}`** (Rerank Score: `{c.rerank_score:.3f}`)")
                     st.code(c.doc.text)
                     st.write("---")
-

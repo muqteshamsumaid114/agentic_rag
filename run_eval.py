@@ -8,6 +8,12 @@ Run the RAGAS evaluation suite against a small test set.
 """
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# Add the agentic_rag directory to sys.path to enable local imports
+sys.path.insert(0, str(Path(__file__).parent / "agentic_rag"))
+
 from core.llm_client import LLMClient
 from eval.ragas_eval import EvalExample, run_eval_suite, summarize
 from main import build_retriever

@@ -14,8 +14,13 @@ This will:
 """
 from __future__ import annotations
 
-import json
+import sys
 from pathlib import Path
+
+# Add the agentic_rag directory to sys.path to enable local imports
+sys.path.insert(0, str(Path(__file__).parent / "agentic_rag"))
+
+import json
 
 from core.llm_client import LLMClient
 from core.orchestrator import run_pipeline
@@ -27,7 +32,7 @@ from core.retriever import (
     HybridRetriever,
 )
 
-DATA_PATH = Path(__file__).parent / "data" / "sample_docs.json"
+DATA_PATH = Path(__file__).parent / "agentic_rag" / "data" / "sample_docs.json"
 
 
 def build_retriever() -> HybridRetriever:
